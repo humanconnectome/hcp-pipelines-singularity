@@ -1,0 +1,12 @@
+[submodule "HCPpipelinesRunUtils"]
+	path = HCPpipelinesRunUtils
+	url = https://github.com/Washington-University/HCPpipelinesRunUtils
+[submodule "xnat_pbs_jobs"]
+	path = xnat_pbs_jobs
+	url = https://github.com/Washington-University/HCPpipelinesXnatPbsJobs
+[submodule "hcp-pipelines"]
+	path = hcp-pipelines
+	url = https://github.com/mobalt/hcp-pipelines
+[submodule "xnat_utilities"]
+	path = xnat_utilities
+	url = https://github.com/Washington-University/xnat_utilities

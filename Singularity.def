@@ -24,7 +24,7 @@ prunner --config=/pipeline_tools/pipelines/ "$@"
 
 %files
 # Files to copy from the host system.
-./src /pipeline_tools/pipelines
+./hcp-pipelines /pipeline_tools/pipelines
 ./HCPpipelinesRunUtils /pipeline_tools/HCPpipelinesRunUtils
 ./xnat_pbs_jobs /pipeline_tools/xnat_pbs_jobs
 ./xnat_utilities /export/HCP/xnat_utilities
