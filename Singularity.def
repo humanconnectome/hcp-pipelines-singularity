@@ -11,7 +11,7 @@ From: centos:7.6.1810
 # After install (guest)
 #mkdir -p /pipeline_tools/pipelines/
 yum install -y python3 git vim
-pip3 install --upgrade pip
+pip3 install pip requests argparse --upgrade
 pip install -r /pipeline_tools/pipelines/requirements.txt
 
     # From prior script:
