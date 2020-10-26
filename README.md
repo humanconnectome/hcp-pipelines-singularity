@@ -5,7 +5,7 @@ wrapper code so that it can run in the WashU HPC.
 ## Cloning with Submodules
 Don't forget to pull down the submodules as well, with the `--recursive` flag.
 ```
-git clone https://github.com/mobalt/hcp-pipelines-singularity --recursive
+git clone https://github.com/humanconnectome/hcp-pipelines-singularity --recursive
 ```
 
 ## Development
