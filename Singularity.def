@@ -9,7 +9,6 @@ From: centos:7.6.1810
 
 %post
 # After install (guest)
-#mkdir -p /pipeline_tools/pipelines/
 yum install -y python3 git vim
 pip3 install pip requests argparse --upgrade
 pip install -r /pipeline_tools/pipelines/requirements.txt
@@ -21,6 +20,22 @@ pip install -r /pipeline_tools/pipelines/requirements.txt
 	mkdir -p /NRG-data/NRG/hcpdb/archive
 	mkdir -p /NRG-data/NRG/hcpdb/build_ssd
 	mkdir -p /usr/local/torque-6.1.2
+
+	####	miniconda
+	wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /pipeline_tools/miniconda.sh
+	bash /pipeline_tools/miniconda.sh -b -p /opt/miniconda
+	rm /pipeline_tools/miniconda.sh
+	export PATH=/opt/miniconda/bin:${PATH}
+	conda create -y --name singlepython3 python=3
+	source activate singlepython3
+	conda install -y requests
+	conda install -y pyqt
+
+	yum install -y epel-release
+	yum install -y python2-pip.noarch
+	pip2 install --upgrade pip
+	pip2 install requests[security]
+	pip2 install argparse==1.4.0
 
 	yum clean packages
 	rm -rf /var/cache/yum/*
@@ -42,7 +57,8 @@ prunner --config=/pipeline_tools/pipelines/ "$@"
 
 %environment
 # Environment variables
-export PATH=/usr/local/torque-6.1.2/bin:/usr/local/torque-6.1.2/sbin:$HOME/bin:$PATH
+export PATH=/opt/miniconda/bin:/usr/local/torque-6.1.2/bin:/usr/local/torque-6.1.2/sbin:$HOME/bin:$PATH
+source activate singlepython3
 export HCP_RUN_UTILS=/pipeline_tools/HCPpipelinesRunUtils
 export XNAT_PBS_JOBS=/pipeline_tools/xnat_pbs_jobs
 export PYTHONPATH=${HCP_RUN_UTILS}/lib:${XNAT_PBS_JOBS}/lib
