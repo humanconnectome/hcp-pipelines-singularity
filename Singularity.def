@@ -16,7 +16,7 @@ pip install -r /pipeline_tools/pipelines/requirements.txt
 
     # From prior script:
     #   (TODO: Not sure what is still useful)
-    yum install -y zip
+    yum install -y zip unzip
 	mkdir -p /NRG-data/NRG/intradb/archive
 	mkdir -p /NRG-data/NRG/hcpdb/archive
 	mkdir -p /NRG-data/NRG/hcpdb/build_ssd
