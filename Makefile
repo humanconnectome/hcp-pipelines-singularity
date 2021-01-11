@@ -1,5 +1,6 @@
 .PHONY = update clean upload
-SERVER = login2
+UPLOAD_USER = HCPpipeline
+SERVER = login02.chpc.wustl.edu
 
 
 update:
@@ -9,10 +10,10 @@ clean:
 	echo "Removing previous container"
 	rm *.sif
 
-upload: pipelines.sif
-	echo "Uploading to ${SERVER}"
-	scp pipelines.sif ${SERVER}:/export/HCP/qunex-hcp/production_containers/pipelines.sif
-
-pipelines.sif: Singularity.def
+build: Singularity.def
 	echo "Generating the singularity container"
-	sudo singularity build pipelines.sif Singularity.def
+	sudo singularity build hcp-pipelines-runner.sif Singularity.def
+
+upload: hcp-pipelines-runner.sif
+	echo "Uploading to ${SERVER}"
+	scp -p hcp-pipelines-runner.sif ${UPLOAD_USER}@${SERVER}:/export/HCP/qunex-hcp/production_containers/hcp-pipelines-runner.sif

@@ -14,5 +14,5 @@ git clone https://github.com/humanconnectome/hcp-pipelines-singularity --recursi
 | -------------        | ------------------------                             |
 | `make clean`         | Remove previous container image.                     |
 | `make update`        | Update all the git submodule repos.                  |
+| `make build`         | Generate a container image from .def file            |
 | `make upload`        | Upload the container to correct location in the HPC. |
-| `make pipelines.sif` | Generate a container image from .def file            |
